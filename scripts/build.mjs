@@ -1,0 +1,13 @@
+import { mkdir, copyFile, readFile, writeFile } from 'node:fs/promises';
+await mkdir('dist/server', {recursive:true});
+await mkdir('dist/.openai', {recursive:true});
+let html = await readFile('web/index.html','utf8');
+const calls = await readFile('web/calls.js','utf8');
+const callsCss = await readFile('web/calls.css','utf8');
+html=html.replace('</head>',()=>'<style>'+callsCss+'</style></head>').replace('</body>',()=>'<script>'+calls+'</script></body>');
+const login=await readFile('web/login.html','utf8');
+const loginExtra=await readFile('web/login-extra.js','utf8');
+const source = await readFile('worker/index.js','utf8');
+await writeFile('dist/server/index.js', source.replace('/*__HTML__*/ ""', () => JSON.stringify(html)).replace('/*__LOGIN__*/ ""',()=>JSON.stringify(login.replace('</body>',()=>'<script>'+loginExtra+'</script></body>'))));
+await copyFile('.openai/hosting.json','dist/.openai/hosting.json');
+console.log('Built Couch Club worker and embedded UI.');
