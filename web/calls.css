@@ -5,3 +5,4 @@
 @media(max-width:500px){.roomtools .code-pill{display:inline-block!important}.code-pill{font-size:9px;padding:6px 7px}.roomtools .code-pill b{letter-spacing:1px}}
 .cinema .call-section{cursor:move;touch-action:none}.cinema .call-section button,.cinema .call-section video{cursor:pointer}
 .stage #unlockShare{left:220px;bottom:55px}.cinema .stage #unlockShare{left:220px}@media(max-width:500px){.stage #unlockShare{left:190px;font-size:10px;padding:9px 10px}}
+.stage #unlock,.stage #unlockShare{bottom:24px;border-radius:999px;box-shadow:0 8px 24px #08051299;font-weight:700}.stage #unlock{left:50%;transform:translateX(-50%)}.stage #unlockShare{left:calc(50% + 135px);background:#2a2046;border-color:#b9a0df;color:#f8f5ff}.stage #unlockShare:hover{background:#3c2d5b;border-color:#f0e85a;color:#f0e85a}@media(max-width:620px){.stage #unlock{bottom:68px}.stage #unlockShare{left:50%;bottom:18px;transform:translateX(-50%)}}
